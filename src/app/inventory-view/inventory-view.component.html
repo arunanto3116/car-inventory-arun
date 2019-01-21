@@ -1,0 +1,72 @@
+<div class="container">
+    <h2 class="page-title" >{{title}}</h2>
+    <div class="table-responsive" >
+  <table class="table table-hover table-main" >
+      <thead>
+        <tr>
+          <th width="25%">Serial number</th>
+          <th width="25%">Manufacturer</th>
+          <th width="25%">Model</th>
+          <th width="25%">Count</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr (click)="open(content,c.model_ids,c.model_count)" *ngFor="let c of cars.data; let i=index;">
+              <td>{{i+1}}</td>
+              <td>{{c.manufacturer}}</td>
+              <td>{{c.model}}</td>
+              <td>{{c.model_count}}</td>
+            </tr>        
+      </tbody>
+      </table>
+      </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Model Details</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="table-responsive">
+        <table class="table table-hover table-modal">
+            <thead>
+              <tr>
+                <th>Action</th>
+                <th>Picture1</th>                
+                <th>Picture2</th>                
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>Color</th>
+                <th>Manufacturing Year</th>
+                <th>Registration Number</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of CarModelDetails.data; let j=index;">
+                    <td><button (click)="markSold(m.model_id)" type="button" class="btn btn-outline-success">Sold</button></td>
+                    <td><img class="img-thumbnail img-fluid rounded-circle img-custom" [src]="assets_path+m.file_name_1"></td>
+                    <td><img class="img-thumbnail img-fluid rounded-circle img-custom" [src]="assets_path+m.file_name_2">
+                    </td>
+                    <td>{{m.manufacturer}}</td>
+                    <td>{{m.model}}</td>
+                    <td>{{m.color}}</td>
+                    <td>{{m.manufacturing_year}}</td>
+                    <td>{{m.registration_number}}</td>
+                    <td>{{m.note}}</td>
+                  </tr>        
+            </tbody>
+            </table>
+            </div>      
+    </div>
+    <div class="modal-footer">
+      <button type="button" ngbAutofocus class="btn btn-outline-dark" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>    
+    
+  
+
+

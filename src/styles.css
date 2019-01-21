@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~datatables.net-bs4/css/dataTables.bootstrap4.css";
+.mb-30
+{
+    margin-bottom: 30px;
+}
+.page-title
+{
+    margin-bottom: 25px;
+}
+.modal-lg 
+{
+    max-width: 80%;
+}
+.img-custom
+{
+    max-height:50px;
+}

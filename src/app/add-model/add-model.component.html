@@ -1,0 +1,54 @@
+<div class="container">
+    <h2 class="page-title" >{{title}}</h2>
+    <div class="row">
+        <div class="col-md-6">
+        <form #myForm="ngForm" >
+          <div class="row mb-2">
+            <div class="col-md-6">
+                <label>Model Name</label>        
+                <input class="form-control" [(ngModel)]="modelData.model" name="mname" placeholder="Model Name"/>
+            </div>
+            <div class="col-md-6">
+                <label>Manufacturer</label>            
+                <select class="form-control" name="manuname" [(ngModel)]="modelData.manufacturer_id" >                    
+                    <option *ngFor="let item of Manufacturers.data" [value]="item.manufacturer_id">{{item.manufacturer}}</option>
+                </select> 
+            </div>
+          </div>
+          <div class="row mb-2">
+              <div class="col-md-6">
+                  <label>Color</label>              
+                  <input class="form-control" name="color" [(ngModel)]="modelData.color" placeholder="Color"/>
+              </div>
+              <div class="col-md-6">
+                  <label>Manufacturing Year</label>             
+                  <input type="number" min="1950" max="2019" class="form-control" name="myear" [(ngModel)]="modelData.manufacturing_year" placeholder="Manufacturing Year"/>
+              </div>  
+          </div>
+          <div class="row mb-2">
+              <div class="col-md-6">
+                  <label>Registration Number</label>          
+                  <input class="form-control" name="mregnum" [(ngModel)]="modelData.registration_number" placeholder="Registration Number"/>
+              </div>
+              <div class="col-md-6">
+                  <label>Note</label>              
+                  <textarea class="form-control" name="mnote" [ngModel]="modelData.note"></textarea>
+              </div>  
+          </div>
+          <div class="row mb-2">
+              <div class="col-md-6">
+                  <input type="file" accept="image/*" id="avatar" (change)="onFileChange($event)" #fileInput>
+              </div>
+              <div class="col-md-6">
+                    <input type="file" accept="image/*" id="avatar1" (change)="onFileChange1($event)" #fileInput1>
+              </div>  
+          </div>      
+          <div class="row mb-2 mt-4">
+            <div class="col-md-6">  
+              <button class="btn btn-dark" (click)="addModel()">Save Model</button>   
+            </div>
+          </div>
+          </form>
+        </div>    
+      </div>    
+</div>  
